@@ -1,0 +1,4 @@
+name,surname,bloodType,emailAdress,password,phoneNumber,adress
+Gökay,Çavdar,Brh+,gokay7847@gmail.com,asd1,05423819199,izmir
+asd,fatih,ads,0−,asd,asd,asd,asd
+asdd,asd,asd,A−,asd,asd,asd,asd
