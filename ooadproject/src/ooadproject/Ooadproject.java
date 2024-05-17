@@ -4,6 +4,8 @@
  */
 package ooadproject;
 
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author gokay
@@ -38,12 +40,14 @@ public class Ooadproject {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+       java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
                 
             }
         });
+       
+       
     }
     
 }

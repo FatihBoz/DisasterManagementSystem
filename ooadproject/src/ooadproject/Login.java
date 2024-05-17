@@ -234,7 +234,7 @@ ArrayList<User> userList = new ArrayList<>();
                 String scannedUsername = data[0];
                 String scannedPassword = data[5];
                 if(username.equals(scannedUsername) && password.equals(scannedPassword)){
-                    Menu m = new Menu();
+                    Dashboard m = new Dashboard();
                      m.setVisible(true);
                      m.pack();
                      m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
