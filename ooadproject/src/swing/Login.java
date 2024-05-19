@@ -1,6 +1,7 @@
 
-package ooadproject;
+package swing;
 
+import classes.User;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,7 +12,7 @@ import javax.swing.JOptionPane;
 
 
 public class Login extends javax.swing.JFrame {
-ArrayList<User> userList = new ArrayList<>(); 
+ArrayList<User> userList = Ooadproject.userList; 
     
     public Login() {
         initComponents();
@@ -53,9 +54,7 @@ ArrayList<User> userList = new ArrayList<>();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(300, 200));
         setMinimumSize(new java.awt.Dimension(300, 200));
-        setPreferredSize(new java.awt.Dimension(300, 100));
         setSize(new java.awt.Dimension(300, 200));
 
         jPanel1.setMinimumSize(new java.awt.Dimension(300, 120));
@@ -91,6 +90,7 @@ ArrayList<User> userList = new ArrayList<>();
 
         jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setText("Log in With Google");
+        jButton1.setBorder(null);
         jButton1.setPreferredSize(new java.awt.Dimension(200, 23));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,7 +226,34 @@ ArrayList<User> userList = new ArrayList<>();
          var username = jTextField1.getText();
          var password = jPasswordField1.getText();
          String fileName = "src\\user.txt";
-         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+        boolean valid = false;
+         
+        
+        try{
+             
+             for(User user : userList){
+                 
+                      
+                 if(user.getUsername().equals(username) && user.getPassword().equals(password)){
+                     Dashboard m = new Dashboard();
+                     valid = true;
+                     m.setVisible(true);
+                     m.pack();
+                     m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                     this.dispose();
+                     
+                 }
+             
+                     
+             }
+             if(!valid)
+             JOptionPane.showMessageDialog(null, "Wrong username or password");
+         }
+         catch(Exception e){
+               System.out.println(e);
+         }
+         
+         /*try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
             br.readLine();
             while ((line = br.readLine()) != null) {
@@ -234,43 +261,27 @@ ArrayList<User> userList = new ArrayList<>();
                 String scannedUsername = data[0];
                 String scannedPassword = data[5];
                 if(username.equals(scannedUsername) && password.equals(scannedPassword)){
-                    Menu m = new Menu();
+                    Dashboard m = new Dashboard();
+                    valid = true;
                      m.setVisible(true);
                      m.pack();
                      m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                      this.dispose();
                 }
+                System.out.println(scannedUsername +" " + scannedPassword);
               
                     
                 
                     
 
-           }
-            JOptionPane.showMessageDialog(null, "Wrong username or password");
+               }
+            if(!valid){
+            JOptionPane.showMessageDialog(null, "Wrong username or password");    
+            }
+            
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        
-                
-         /*try{
-             
-             for(User user : userList){
-                 if(user.getUsername().equals(id) && user.getPassword().equals(password)){
-                     Menu m = new Menu();
-                     m.setVisible(true);
-                     m.pack();
-                     m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                     this.dispose();
-                     
-                 }
-                 else
-                     JOptionPane.showMessageDialog(null, "Wrong username or password");
-             }
-         }
-         catch(Exception e){
-               System.out.println(e);
-         }*/
-         
+        }*/
          
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -301,30 +312,7 @@ ArrayList<User> userList = new ArrayList<>();
     /**
      * @param args the command line arguments
      */
-   public void scanFiles(){
-       String fileName = "src\\user.txt";
-
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            br.readLine();
-            while ((line = br.readLine()) != null) {
-                String[] data = line.split(",");
-                String username = data[0];
-                String name = data[1];
-                String surname = data[2];
-                String bloodType = data[3];
-                String emailAdress = data[4];
-                String password = data[5];
-                String phoneNumber = data[6];
-                String adress = data[7];
-                User user = new User(username,name,surname,bloodType,emailAdress,password,phoneNumber,adress);
-                userList.add(user);
-
-           }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-   }
+   
    
    
 

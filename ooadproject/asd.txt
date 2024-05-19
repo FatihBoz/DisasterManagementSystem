@@ -1,0 +1,4 @@
+Lettuce(4.0Calories): 1
+Spinach(7.0Calories): 1
+Tomato(5.0Calories): 1
+Total Calories: 16.0

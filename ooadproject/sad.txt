@@ -1,0 +1,3 @@
+Tomato(5.0Calories): 1
+Bok Choy(4.0Calories): 1
+Total Calories: 9.0
