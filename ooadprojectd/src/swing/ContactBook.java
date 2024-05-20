@@ -152,6 +152,9 @@ public class ContactBook extends javax.swing.JPanel {
 
         BackgroundPanel.add(AddContactPersonPanel, "card3");
 
+        ListContactsPanel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        PersonToContactList.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         PersonToContactList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", " ", "Item 2", " ", "Item 3", " ", "Item 4", " ", "Item 5" };
             public int getSize() { return strings.length; }
