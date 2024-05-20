@@ -2,4 +2,3 @@ name,surname,phoneNumber,relationship
 fatih,boz,147,ben
 diğerFatih,boz,78963,poğaça
 op,az,123,asd
-op,pa,789654123,babam

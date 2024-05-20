@@ -42,7 +42,6 @@ public class Dashboard extends javax.swing.JFrame {
         this.loggedInUsername = username;  // Giriş yapan kullanıcı adını al
         initComponents();
         showDateandTime();
-        addLogoutListener();
     }
     public Dashboard() {
         this("defaultUser"); // Varsayılan bir kullanıcı adı ile parametreli constructor'ı çağırın
@@ -89,37 +88,22 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        ContactListButton = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         dateandTime.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         dateandTime.setText("date and time");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(310, 310, 310)
-                .addComponent(dateandTime)
-                .addContainerGap(386, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(dateandTime)
-                .addContainerGap(558, Short.MAX_VALUE))
-        );
+        jPanel2.add(dateandTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 27, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 810, 610));
 
@@ -183,16 +167,16 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel7.setBackground(new java.awt.Color(51, 51, 51));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 13)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add_user_group_woman_man_24px.png"))); // NOI18N
-        jLabel7.setText("Contact List");
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+        ContactListButton.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 13)); // NOI18N
+        ContactListButton.setForeground(new java.awt.Color(153, 153, 153));
+        ContactListButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add_user_group_woman_man_24px.png"))); // NOI18N
+        ContactListButton.setText("Contact List");
+        ContactListButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
+                ContactListButtonMouseClicked(evt);
             }
         });
-        jPanel7.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 60));
+        jPanel7.add(ContactListButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 60));
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 160, 60));
 
@@ -212,20 +196,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 160, 60));
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Log Out");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 611));
 
         pack();
         setLocationRelativeTo(null);
@@ -270,13 +241,23 @@ public class Dashboard extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_jLabel6MouseClicked
 
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel7MouseClicked
+    private void ContactListButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContactListButtonMouseClicked
+        jPanel2.removeAll();
+        jPanel2.revalidate();
+        jPanel2.repaint();
+        
+        ContactBook c = new ContactBook();
+        c.setVisible(true);
+        
+        jPanel2.setLayout(new BorderLayout()); // Set the layout
+        jPanel2.add(c, BorderLayout.CENTER); // Add the component
+        jPanel2.revalidate(); // Revalidate to apply the changes
+        jPanel2.repaint(); // Repaint to refresh the display
+    }//GEN-LAST:event_ContactListButtonMouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
-             jPanel2.removeAll();
+    jPanel2.removeAll();
     jPanel2.revalidate();
     jPanel2.repaint();
 
@@ -555,31 +536,6 @@ private void showUserProfile(User user) {
         System.out.println("Could not rename temporary file");
     }
 }
-    
-     private void addLogoutListener() {
-    jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            jLabel2MouseClicked(evt);
-        }
-    });
-     }
-           
-private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {                                     
-        // Log out işlemi
-        // Şu anki Dashboard penceresini kapat
-        this.dispose();
-
-        // Log in ekranını yeniden başlat
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
-        });
-    } 
-    
-    
-    
-    
 
 
 
@@ -645,14 +601,13 @@ private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ContactListButton;
     private javax.swing.JLabel dateandTime;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
