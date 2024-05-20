@@ -290,176 +290,193 @@ private User loadUserData(String username) {
 
     
 private void showUserProfile(User user) {
-        jPanel2.removeAll(); // Clear old contents
+    jPanel2.removeAll(); // Clear old contents
 
-        JPanel contentPanel = new JPanel();
-        GroupLayout layout = new GroupLayout(contentPanel);
-        contentPanel.setLayout(layout);
-        layout.setAutoCreateGaps(true);
-        layout.setAutoCreateContainerGaps(true);
+    JPanel contentPanel = new JPanel();
+    contentPanel.setBackground(new java.awt.Color(255, 255, 255)); // Arka planı gri yap
+    GroupLayout layout = new GroupLayout(contentPanel);
+    contentPanel.setLayout(layout);
+    layout.setAutoCreateGaps(true);
+    layout.setAutoCreateContainerGaps(true);
 
-        // Show user photo
-        String photoPath = "src\\user_photos\\" + user.getUsername() + ".jpg";
-        String defaultPhotoPath = "src\\user_photos\\default.jpg";
-        java.io.File photoFile = new java.io.File(photoPath);
-        java.io.File defaultPhotoFile = new java.io.File(defaultPhotoPath);
-        JLabel photoLabel = new JLabel();
-        if (photoFile.exists()) {
-            ImageIcon photoIcon = new ImageIcon(new ImageIcon(photoPath).getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
-            photoLabel.setIcon(photoIcon);
-        } else if (defaultPhotoFile.exists()) {
-            ImageIcon defaultPhotoIcon = new ImageIcon(new ImageIcon(defaultPhotoPath).getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
-            photoLabel.setIcon(defaultPhotoIcon);
-        } else {
-            photoLabel.setText("No Photo");
-        }
+    // Show user photo
+    String photoPath = "src\\user_photos\\" + user.getUsername() + ".jpg";
+    String defaultPhotoPath = "src\\user_photos\\default.jpg";
+    java.io.File photoFile = new java.io.File(photoPath);
+    java.io.File defaultPhotoFile = new java.io.File(defaultPhotoPath);
+    JLabel photoLabel = new JLabel();
+    if (photoFile.exists()) {
+        ImageIcon photoIcon = new ImageIcon(new ImageIcon(photoPath).getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        photoLabel.setIcon(photoIcon);
+    } else if (defaultPhotoFile.exists()) {
+        ImageIcon defaultPhotoIcon = new ImageIcon(new ImageIcon(defaultPhotoPath).getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        photoLabel.setIcon(defaultPhotoIcon);
+    } else {
+        photoLabel.setText("No Photo");
+    }
 
-        // Photo update button
-        JButton updatePhotoButton = new JButton("Upload Photo");
-        updatePhotoButton.setFont(new Font("Arial", Font.BOLD, 16));
-        updatePhotoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JFileChooser fileChooser = new JFileChooser();
-                fileChooser.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("Image files", "jpg", "png", "jpeg"));
-                int returnValue = fileChooser.showOpenDialog(jPanel2);
-                if (returnValue == JFileChooser.APPROVE_OPTION) {
-                    java.io.File file = fileChooser.getSelectedFile();
-                    String newFilePath = "src\\user_photos\\" + user.getUsername() + ".jpg"; // Kullanıcı adıyla bağdaştırılmış dosya adı
-                    try {
-                        java.nio.file.Files.copy(file.toPath(), java.nio.file.Paths.get(newFilePath), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
-                        JOptionPane.showMessageDialog(jPanel2, "Photo uploaded successfully!");
-                        // Update and show the photo again
-                        ImageIcon updatedPhotoIcon = new ImageIcon(new ImageIcon(newFilePath).getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
-                        photoLabel.setIcon(updatedPhotoIcon);
-                        jPanel2.revalidate();
-                        jPanel2.repaint();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        JOptionPane.showMessageDialog(jPanel2, "Failed to upload photo!", "Error", JOptionPane.ERROR_MESSAGE);
-                    }
-                }
-            }
-        });
-
-        // Info update button
-        JButton updateInfoButton = new JButton("Update Info");
-        updateInfoButton.setFont(new Font("Arial", Font.BOLD, 16));
-        updateInfoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JPanel updatePanel = new JPanel(new GridLayout(7, 2, 10, 10));
-                JTextField nameField = new JTextField(user.getName());
-                JTextField surnameField = new JTextField(user.getSurname());
-                JTextField bloodTypeField = new JTextField(user.getBloodType());
-                JTextField emailField = new JTextField(user.getEmailAdress());
-                JTextField phoneField = new JTextField(user.getPhoneNumber());
-                JTextField addressField = new JTextField(user.getAdress());
-
-                updatePanel.add(new JLabel("Name:"));
-                updatePanel.add(nameField);
-                updatePanel.add(new JLabel("Surname:"));
-                updatePanel.add(surnameField);
-                updatePanel.add(new JLabel("Blood Type:"));
-                updatePanel.add(bloodTypeField);
-                updatePanel.add(new JLabel("Email Address:"));
-                updatePanel.add(emailField);
-                updatePanel.add(new JLabel("Phone Number:"));
-                updatePanel.add(phoneField);
-                updatePanel.add(new JLabel("Address:"));
-                updatePanel.add(addressField);
-
-                int result = JOptionPane.showConfirmDialog(null, updatePanel, "Update Info", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-
-                if (result == JOptionPane.OK_OPTION) {
-                    user.setName(nameField.getText());
-                    user.setSurname(surnameField.getText());
-                    user.setBloodType(bloodTypeField.getText());
-                    user.setEmailAdress(emailField.getText());
-                    user.setPhoneNumber(phoneField.getText());
-                    user.setAdress(addressField.getText());
-
-                    // Update user.txt file
-                    updateUserFile(user);
-                    
-                    // Update and show the info again
-                    showUserProfile(user);
+    // Photo update button
+    JButton updatePhotoButton = new JButton("Upload Photo");
+    updatePhotoButton.setFont(new Font("Arial", Font.BOLD, 16));
+    updatePhotoButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("Image files", "jpg", "png", "jpeg"));
+            int returnValue = fileChooser.showOpenDialog(jPanel2);
+            if (returnValue == JFileChooser.APPROVE_OPTION) {
+                java.io.File file = fileChooser.getSelectedFile();
+                String newFilePath = "src\\user_photos\\" + user.getUsername() + ".jpg"; // Kullanıcı adıyla bağdaştırılmış dosya adı
+                try {
+                    java.nio.file.Files.copy(file.toPath(), java.nio.file.Paths.get(newFilePath), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+                    JOptionPane.showMessageDialog(jPanel2, "Photo uploaded successfully!");
+                    // Update and show the photo again
+                    ImageIcon updatedPhotoIcon = new ImageIcon(new ImageIcon(newFilePath).getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+                    photoLabel.setIcon(updatedPhotoIcon);
                     jPanel2.revalidate();
                     jPanel2.repaint();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(jPanel2, "Failed to upload photo!", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
-        });
+        }
+    });
 
-        // Change password button
-        JButton changePasswordButton = new JButton("Change Password");
-        changePasswordButton.setFont(new Font("Arial", Font.BOLD, 16));
-        changePasswordButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JPanel passwordPanel = new JPanel(new GridLayout(4, 2, 10, 10));
-                JPasswordField oldPasswordField = new JPasswordField();
-                JPasswordField newPasswordField = new JPasswordField();
-                JPasswordField confirmNewPasswordField = new JPasswordField();
+    // Info update button
+    JButton updateInfoButton = new JButton("Update Info");
+    updateInfoButton.setFont(new Font("Arial", Font.BOLD, 16));
+    updateInfoButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            JPanel updatePanel = new JPanel(new GridLayout(7, 2, 10, 10));
+            JTextField nameField = new JTextField(user.getName());
+            JTextField surnameField = new JTextField(user.getSurname());
+            JTextField bloodTypeField = new JTextField(user.getBloodType());
+            JTextField emailField = new JTextField(user.getEmailAdress());
+            JTextField phoneField = new JTextField(user.getPhoneNumber());
+            JTextField addressField = new JTextField(user.getAdress());
 
-                passwordPanel.add(new JLabel("Old Password:"));
-                passwordPanel.add(oldPasswordField);
-                passwordPanel.add(new JLabel("New Password:"));
-                passwordPanel.add(newPasswordField);
-                passwordPanel.add(new JLabel("Confirm New Password:"));
-                passwordPanel.add(confirmNewPasswordField);
+            updatePanel.add(new JLabel("Name:"));
+            updatePanel.add(nameField);
+            updatePanel.add(new JLabel("Surname:"));
+            updatePanel.add(surnameField);
+            updatePanel.add(new JLabel("Blood Type:"));
+            updatePanel.add(bloodTypeField);
+            updatePanel.add(new JLabel("Email Address:"));
+            updatePanel.add(emailField);
+            updatePanel.add(new JLabel("Phone Number:"));
+            updatePanel.add(phoneField);
+            updatePanel.add(new JLabel("Address:"));
+            updatePanel.add(addressField);
 
-                int result = JOptionPane.showConfirmDialog(null, passwordPanel, "Change Password", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+            int result = JOptionPane.showConfirmDialog(null, updatePanel, "Update Info", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
-                if (result == JOptionPane.OK_OPTION) {
-                    String oldPassword = new String(oldPasswordField.getPassword());
-                    String newPassword = new String(newPasswordField.getPassword());
-                    String confirmNewPassword = new String(confirmNewPasswordField.getPassword());
+            if (result == JOptionPane.OK_OPTION) {
+                user.setName(nameField.getText());
+                user.setSurname(surnameField.getText());
+                user.setBloodType(bloodTypeField.getText());
+                user.setEmailAdress(emailField.getText());
+                user.setPhoneNumber(phoneField.getText());
+                user.setAdress(addressField.getText());
 
-                    if (oldPassword.equals(user.getPassword())) {
-                        if (newPassword.equals(confirmNewPassword)) {
-                            user.setPassword(newPassword);
-                            updateUserFile(user);
-                            JOptionPane.showMessageDialog(jPanel2, "Password updated successfully!");
-                        } else {
-                            JOptionPane.showMessageDialog(jPanel2, "New passwords do not match!", "Error", JOptionPane.ERROR_MESSAGE);
-                        }
+                // Update user.txt file
+                updateUserFile(user);
+                
+                // Update and show the info again
+                showUserProfile(user);
+                jPanel2.revalidate();
+                jPanel2.repaint();
+            }
+        }
+    });
+
+    // Change password button
+    JButton changePasswordButton = new JButton("Change Password");
+    changePasswordButton.setFont(new Font("Arial", Font.BOLD, 16));
+    changePasswordButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            JPanel passwordPanel = new JPanel(new GridLayout(4, 2, 10, 10));
+            JPasswordField oldPasswordField = new JPasswordField();
+            JPasswordField newPasswordField = new JPasswordField();
+            JPasswordField confirmNewPasswordField = new JPasswordField();
+
+            passwordPanel.add(new JLabel("Old Password:"));
+            passwordPanel.add(oldPasswordField);
+            passwordPanel.add(new JLabel("New Password:"));
+            passwordPanel.add(newPasswordField);
+            passwordPanel.add(new JLabel("Confirm New Password:"));
+            passwordPanel.add(confirmNewPasswordField);
+
+            int result = JOptionPane.showConfirmDialog(null, passwordPanel, "Change Password", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+
+            if (result == JOptionPane.OK_OPTION) {
+                String oldPassword = new String(oldPasswordField.getPassword());
+                String newPassword = new String(newPasswordField.getPassword());
+                String confirmNewPassword = new String(confirmNewPasswordField.getPassword());
+
+                if (oldPassword.equals(user.getPassword())) {
+                    if (newPassword.equals(confirmNewPassword)) {
+                        user.setPassword(newPassword);
+                        updateUserFile(user);
+                        JOptionPane.showMessageDialog(jPanel2, "Password updated successfully!");
                     } else {
-                        JOptionPane.showMessageDialog(jPanel2, "Old password is incorrect!", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(jPanel2, "New passwords do not match!", "Error", JOptionPane.ERROR_MESSAGE);
                     }
+                } else {
+                    JOptionPane.showMessageDialog(jPanel2, "Old password is incorrect!", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
-        });
+        }
+    });
 
-        JLabel usernameLabel = new JLabel("Username: " + user.getUsername());
-        JLabel nameLabel = new JLabel("Name: " + user.getName());
-        JLabel surnameLabel = new JLabel("Surname: " + user.getSurname());
-        JLabel bloodTypeLabel = new JLabel("Blood Type: " + user.getBloodType());
-        JLabel emailLabel = new JLabel("Email Address: " + user.getEmailAdress());
-        JLabel phoneLabel = new JLabel("Phone Number: " + user.getPhoneNumber());
-        JLabel addressLabel = new JLabel("Address: " + user.getAdress());
+    JLabel usernameLabel = new JLabel("Username: " + user.getUsername());
+    JLabel nameLabel = new JLabel("Name: " + user.getName());
+    JLabel surnameLabel = new JLabel("Surname: " + user.getSurname());
+    JLabel bloodTypeLabel = new JLabel("Blood Type: " + user.getBloodType());
+    JLabel emailLabel = new JLabel("Email Address: " + user.getEmailAdress());
+    JLabel phoneLabel = new JLabel("Phone Number: " + user.getPhoneNumber());
+    JLabel addressLabel = new JLabel("Address: " + user.getAdress());
 
-        Font font = new Font("Arial", Font.BOLD, 18);
-        Color color = new Color(33, 37, 41); // Koyu gri renk
+    Font font = new Font("Arial", Font.BOLD, 18);
+    Color color = new Color(33, 37, 41); // Koyu gri renk
 
-        usernameLabel.setFont(font);
-        usernameLabel.setForeground(color);
-        nameLabel.setFont(font);
-        nameLabel.setForeground(color);
-        surnameLabel.setFont(font);
-        surnameLabel.setForeground(color);
-        bloodTypeLabel.setFont(font);
-        bloodTypeLabel.setForeground(color);
-        emailLabel.setFont(font);
-        emailLabel.setForeground(color);
-        phoneLabel.setFont(font);
-        phoneLabel.setForeground(color);
-        addressLabel.setFont(font);
-        addressLabel.setForeground(color);
+    usernameLabel.setFont(font);
+    usernameLabel.setForeground(color);
+    nameLabel.setFont(font);
+    nameLabel.setForeground(color);
+    surnameLabel.setFont(font);
+    surnameLabel.setForeground(color);
+    bloodTypeLabel.setFont(font);
+    bloodTypeLabel.setForeground(color);
+    emailLabel.setFont(font);
+    emailLabel.setForeground(color);
+    phoneLabel.setFont(font);
+    phoneLabel.setForeground(color);
+    addressLabel.setFont(font);
+    addressLabel.setForeground(color);
 
-        layout.setHorizontalGroup(
-            layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                    .addComponent(photoLabel)
-                    .addComponent(updatePhotoButton))
-                .addGap(30)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+    layout.setHorizontalGroup(
+        layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                .addComponent(photoLabel)
+                .addComponent(updatePhotoButton))
+            .addGap(30)
+            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addComponent(usernameLabel)
+                .addComponent(nameLabel)
+                .addComponent(surnameLabel)
+                .addComponent(bloodTypeLabel)
+                .addComponent(emailLabel)
+                .addComponent(phoneLabel)
+                .addComponent(addressLabel)
+                .addComponent(updateInfoButton)
+                .addComponent(changePasswordButton))
+    );
+
+    layout.setVerticalGroup(
+        layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addComponent(photoLabel)
+                .addGroup(layout.createSequentialGroup()
                     .addComponent(usernameLabel)
                     .addComponent(nameLabel)
                     .addComponent(surnameLabel)
@@ -468,37 +485,21 @@ private void showUserProfile(User user) {
                     .addComponent(phoneLabel)
                     .addComponent(addressLabel)
                     .addComponent(updateInfoButton)
-                    .addComponent(changePasswordButton))
-        );
+                    .addComponent(changePasswordButton)))
+            .addComponent(updatePhotoButton)
+    );
 
-        layout.setVerticalGroup(
-            layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(photoLabel)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(usernameLabel)
-                        .addComponent(nameLabel)
-                        .addComponent(surnameLabel)
-                        .addComponent(bloodTypeLabel)
-                        .addComponent(emailLabel)
-                        .addComponent(phoneLabel)
-                        .addComponent(addressLabel)
-                        .addComponent(updateInfoButton)
-                        .addComponent(changePasswordButton)))
-                .addComponent(updatePhotoButton)
-        );
+    // İçeriği ortalamak için ana panel
+    jPanel2.setLayout(new GridBagLayout());
+    GridBagConstraints gbc = new GridBagConstraints();
+    gbc.gridx = 0;
+    gbc.gridy = 0;
+    gbc.anchor = GridBagConstraints.CENTER;
+    jPanel2.add(contentPanel, gbc);
 
-        // İçeriği ortalamak için ana panel
-        jPanel2.setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.anchor = GridBagConstraints.CENTER;
-        jPanel2.add(contentPanel, gbc);
-
-        jPanel2.revalidate(); // Yeniden boyutlandırma ve düzenleme
-        jPanel2.repaint(); // Yeniden çizim
-    }
+    jPanel2.revalidate(); // Yeniden boyutlandırma ve düzenleme
+    jPanel2.repaint(); // Yeniden çizim
+}
 
 
 

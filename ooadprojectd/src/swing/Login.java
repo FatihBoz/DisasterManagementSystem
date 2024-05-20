@@ -240,43 +240,30 @@ private boolean authenticateUser(String username, String password) {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-       String username = jTextField1.getText();
-    String password = jPasswordField1.getText(); // Şifreyi de alın
+        String username = jTextField1.getText();
+    String password = new String(jPasswordField1.getPassword()); // Şifreyi de alın
 
-    // Giriş işlemini burada doğrulayın
-    if (authenticateUser(username, password)) {
-        // Giriş başarılı, Dashboard'a yönlendir
-        swing.Dashboard dashboard = new swing.Dashboard(username); // Tam paket adını kullanın
-        dashboard.setVisible(true);
-        dispose(); // Login penceresini kapat
-    } 
-        boolean valid = false;
-         
-        
-        try{
-             
-             for(User user : userList){
-                 
-                      
-                 if(user.getUsername().equals(username) && user.getPassword().equals(password)){
-                     u = user;
-                     Dashboard m = new Dashboard(username);
-                     valid = true;
-                     m.setVisible(true);
-                     m.pack();
-                     m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                     this.dispose();
-                     
-                 }
-             
-                     
-             }
-             if(!valid)
-             JOptionPane.showMessageDialog(null, "Wrong username or password");
-         }
-         catch(Exception e){
-               System.out.println(e);
-         }
+    boolean valid = false;
+
+    try {
+        for (User user : userList) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                u = user;
+                Dashboard m = new Dashboard(username);
+                valid = true;
+                m.setVisible(true);
+                m.pack();
+                m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                this.dispose();
+                break; // Kullanıcı bulundu, döngüden çık
+            }
+        }
+        if (!valid) {
+            JOptionPane.showMessageDialog(this, "Wrong username or password", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
          
          /*try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;

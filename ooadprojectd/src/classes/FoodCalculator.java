@@ -114,7 +114,7 @@ public class FoodCalculator extends JFrame{
 	add(findbutton);
 	add(reset);
 	add(area);
-	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	setVisible(true);
 	
 	
