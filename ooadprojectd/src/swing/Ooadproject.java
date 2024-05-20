@@ -4,6 +4,7 @@
  */
 package swing;
 
+import classes.Contact;
 import classes.FacilityFactory;
 import classes.User;
 import java.io.BufferedReader;
@@ -60,7 +61,7 @@ public class Ooadproject {
        
        
     }
-    public static void scanFiles(){
+    public static void scanFiles(){ // user list file
        String fileName = "src\\user.txt";
 
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
@@ -88,5 +89,7 @@ public class Ooadproject {
     public ArrayList<User> getUserList(){
         return this.userList;
     }
+    
+
     
 }
