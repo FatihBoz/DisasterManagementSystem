@@ -1,8 +1,0 @@
-username,name,surname,bloodType,emailAdress,password,phoneNumber,adress
-gokay22,Gökay,Çavdar,Brh+,gokay7847@gmail.com,asd1,05423819199,izmir
-fatih45,asd,fatih,ads,0−,asd,asd,asd,asd
-furkan,asdd,asd,asd,A−,asd,asd,asd,asd
-furkan53,furkan,cengiz,0−,furkan@gmail.com,furkan,05436785543,izmir
-gokahy3,gökay,çavdar,0−,asd,asd,asd,izmir
-asd,fatih40,asd,0−,gads,123,asd,asd
-FARİH444,AZXC,ZXC,AB−,ASD,ASD,ASD,ASD
