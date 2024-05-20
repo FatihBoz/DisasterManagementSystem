@@ -1,0 +1,3 @@
+Scallop(32.0Calories): 1
+Ocean Perch(27.0Calories): 11
+Total Calories: 329.0

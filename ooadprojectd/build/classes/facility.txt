@@ -1,0 +1,11 @@
+id,name,adress
+100100,T.C. Sağlık Bakanlığı Buca Seyfi Demirsoy Eğitim ve Araştırma Hastanesi,Kozağaç Özmen Cd No:147 35390 Buca/İzmir
+100101,İzmir Tınaztepe Üniversitesi Özel Buca Hastanesi,Tınaztepe Mahallesi Ahmet Piriştina Blv 35400 Buca/İzmir
+100102,İzmir Büyükşehir Belediyesi Eşrefpaşa Hastanesi,Yenişehir Gaziler Cd No:315 35170 Konak/İzmir
+100103,Gazi Hastanesi,Alsancak Kahramanlar Mahallesi Nevzat Güzelırmak Sk. No:29 35230 Konak
+100104,Ege Üniversitesi Tıp Fakültesi Hastanesi,Kazımdirik Üniversite Cd. No:9 35100 Bornova/İzmir
+200,BUCA İLÇESİ 29 EKİM MAHALLESİ 1 NO'LU AFET VE ACİL DURUM TOPLANMA ALANI,HAL KARŞISI MEVKİİ - ATATÜRK CAD. VE 2175 SOKAK ARASI
+200,ALİAĞA İLÇESİ ATATÜRK MAHALLESİ 1 NO'LU AFET VE ACİL DURUM TOPLANMA ALANI,ENKA SPOR SALONU - İNÖNÜ CAD. VE GÜNEŞ SOKAK ARASI
+200,BORNOVA İLÇESİ ATATÜRK MAHALLESİ 1 NO'LU AFET VE ACİL DURUM TOPLANMA ALANI,954 SOKAK VE 956 SOKAK KESİŞİMİ
+300,Köşe Buca Eczanesi,Adatepe 6. Sk. No:1/A 35400 Buca/İzmir
+300,Buca Erdem Eczanesi,Kozağaç 229. Sk. Pk:35678 35390 Buca/İzmir
