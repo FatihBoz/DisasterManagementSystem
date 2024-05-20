@@ -15,12 +15,36 @@ public class Flood extends Incident{
     private String severity; //low, middle, high
     private int effectedArea;
     
-    public Flood(Adress incidentAdress, long location, LocalTime time, String type, String severity,
+    public Flood(String incidentAdress, long location, LocalTime time, String type, String severity,
                    int effectedArea) {
     super(incidentAdress,location,time);
     this.type = type;
     this.severity = severity;
     this.effectedArea = effectedArea;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getSeverity() {
+        return severity;
+    }
+
+    public void setSeverity(String severity) {
+        this.severity = severity;
+    }
+
+    public int getEffectedArea() {
+        return effectedArea;
+    }
+
+    public void setEffectedArea(int effectedArea) {
+        this.effectedArea = effectedArea;
     }
     
     

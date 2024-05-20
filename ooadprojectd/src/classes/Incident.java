@@ -4,15 +4,49 @@
  */
 package classes;
 
+import java.time.LocalTime;
+
 /**
  *
  * @author Toshiba
  */
-public class Incident {
-    private Adress incidentAdress;
-    private int location;
-    private String severity;
-    private Time time;
+public abstract class Incident {
+    private String incidentAdress;
+    private long location;
+    private LocalTime time;
+
+    public Incident(String incidentAdress, long location, LocalTime time){
+    this.incidentAdress = incidentAdress;
+    this.location = location;
+    this.time = time;
+    }
+    
+    public String getIncidentAdress() {
+        return incidentAdress;
+    }
+
+    public void setIncidentAdress(String incidentAdress) {
+        this.incidentAdress = incidentAdress;
+    }
+
+    public long getLocation() {
+        return location;
+    }
+
+    public void setLocation(long location) {
+        this.location = location;
+    }
+
+    public LocalTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalTime time) {
+        this.time = time;
+    }
+            
+    
+    
     
     
 }

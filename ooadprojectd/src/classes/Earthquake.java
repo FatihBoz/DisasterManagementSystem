@@ -15,7 +15,7 @@ public class Earthquake extends Incident {
     private String type;
 
 
-    public Earthquake(Adress incidentAdress, long location, LocalTime time, String type, int severity) {
+    public Earthquake(String incidentAdress, long location, LocalTime time, String type, int severity) {
     super(incidentAdress,location,time);
     this.severity = severity;
     this.type = type;

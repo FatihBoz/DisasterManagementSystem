@@ -15,7 +15,7 @@ public class LandSlide extends Incident {
     private String severity;
     private int valleyDepth;
     
-    public LandSlide(Adress incidentAdress, long location, LocalTime time, String type, String severity,
+    public LandSlide(String incidentAdress, long location, LocalTime time, String type, String severity,
             int valleyDepth) {
         super(incidentAdress, location, time);
         this.type = type;
