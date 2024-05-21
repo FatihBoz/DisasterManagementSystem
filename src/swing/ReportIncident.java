@@ -4,13 +4,7 @@
  */
 package swing;
 
-import classes.Earthquake;
-import classes.Flood;
-import classes.LandSlide;
-import java.awt.BorderLayout;
-import javax.swing.JTable;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,7 +20,6 @@ public class ReportIncident extends javax.swing.JInternalFrame {
         BasicInternalFrameUI ui = (BasicInternalFrameUI)this.getUI();
         ui.setNorthPane(null);
         initComponents();
-        
     }
 
     /**
@@ -38,41 +31,7 @@ public class ReportIncident extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 41, Short.MAX_VALUE)
-        );
 
         setBorder(null);
         setForeground(java.awt.Color.pink);
@@ -80,162 +39,15 @@ public class ReportIncident extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setPreferredSize(new java.awt.Dimension(809, 157));
-
-        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel6MouseClicked(evt);
-            }
-        });
-
-        jLabel1.setText("Earthquake");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel1)
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap())
-        );
-
-        jPanel9.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel9MouseClicked(evt);
-            }
-        });
-
-        jLabel2.setText("Land Slide");
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(23, 23, 23))
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addContainerGap())
-        );
-
-        jPanel11.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel11MouseClicked(evt);
-            }
-        });
-
-        jLabel3.setText("Flood");
-
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(138, 138, 138)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(157, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
-        );
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 812, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 298, Short.MAX_VALUE)
-        );
-
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setPreferredSize(new java.awt.Dimension(409, 157));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE))
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 806, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 586, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -252,177 +64,8 @@ public class ReportIncident extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        // TODO add your handling code here:
-                jPanel5.removeAll();
-    jPanel5.revalidate();
-    jPanel5.repaint();
-
-    // Create and add the FindFacility component
-        EarthquakeAdding f = new EarthquakeAdding();
-    f.setVisible(true);
-
-    jPanel5.setLayout(new BorderLayout()); // Set the layout
-    jPanel5.add(f, BorderLayout.CENTER); // Add the component
-    jPanel5.revalidate(); // Revalidate to apply the changes
-    jPanel5.repaint(); // Repaint to refresh the display
-    
-    jPanel4.removeAll();
-    jPanel4.revalidate();
-    jPanel4.repaint();
-
-    // Create and add the FindFacility component
-        EarthquakeTable z = new EarthquakeTable();
-    z.setVisible(true);
-
-    jPanel4.setLayout(new BorderLayout()); // Set the layout
-    jPanel4.add(z, BorderLayout.CENTER); // Add the component
-    jPanel4.revalidate(); // Revalidate to apply the changes
-    jPanel4.repaint(); // Repaint to refresh the display
-    
-    DefaultTableModel model = (DefaultTableModel) EarthquakeTable.jTable1.getModel();
-    for(int i = 0; i <  Ooadproject.incidentList.size(); i++){
-            System.out.println(Ooadproject.incidentList.get(i).getType());
-            if(Ooadproject.incidentList.get(i).getType().equals("Earthquake")){
-                    Earthquake e =(Earthquake) Ooadproject.incidentList.get(i);
-                 model.addRow(new Object[]{e.getIncidentAdress(),e.getLocation(),e.getTime(),e.getType(),e.getSeverity()});
-            }
-        }
-    
-    
-    
-    }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
-        // TODO add your handling code here:
-     jPanel5.removeAll();
-    jPanel5.revalidate();
-    jPanel5.repaint();
-
-    // Create and add the FindFacility component
-        LandSlideAdding f = new LandSlideAdding();
-    f.setVisible(true);
-
-    jPanel5.setLayout(new BorderLayout()); // Set the layout
-    jPanel5.add(f, BorderLayout.CENTER); // Add the component
-    jPanel5.revalidate(); // Revalidate to apply the changes
-    jPanel5.repaint(); // Repaint to refresh the display
-    
-    jPanel4.removeAll();
-    jPanel4.revalidate();
-    jPanel4.repaint();
-
-    // Create and add the FindFacility component
-        LandSlideTable z = new LandSlideTable();
-    z.setVisible(true);
-
-    jPanel4.setLayout(new BorderLayout()); // Set the layout
-    jPanel4.add(z, BorderLayout.CENTER); // Add the component
-    jPanel4.revalidate(); // Revalidate to apply the changes
-    jPanel4.repaint(); // Repaint to refresh the display
-    DefaultTableModel model = (DefaultTableModel) LandSlideTable.jLandSlideTable.getModel();
-    for(int i = 0; i <  Ooadproject.incidentList.size(); i++){
-            System.out.println(Ooadproject.incidentList.get(i).getType());
-            if(Ooadproject.incidentList.get(i).getType().equals("LandSlide")){
-                    LandSlide e =(LandSlide)Ooadproject.incidentList.get(i);
-                 model.addRow(new Object[]{e.getIncidentAdress(),e.getLocation(),e.getTime(),e.getType(),e.getSeverity(),e.getValleyDepth()});
-            }
-        }
-    
-    }//GEN-LAST:event_jPanel9MouseClicked
-
-    private void jPanel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel11MouseClicked
-        // TODO add your handling code here:
-        jPanel5.removeAll();
-    jPanel5.revalidate();
-    jPanel5.repaint();
-
-    // Create and add the FindFacility component
-        FloodAdding f = new FloodAdding();
-    f.setVisible(true);
-
-    jPanel5.setLayout(new BorderLayout()); // Set the layout
-    jPanel5.add(f, BorderLayout.CENTER); // Add the component
-    jPanel5.revalidate(); // Revalidate to apply the changes
-    jPanel5.repaint(); // Repaint to refresh the display
-    jPanel4.removeAll();
-    jPanel4.revalidate();
-    jPanel4.repaint();
-
-    // Create and add the FindFacility component
-        FloodTable z = new FloodTable();
-    z.setVisible(true);
-
-    jPanel4.setLayout(new BorderLayout()); // Set the layout
-    jPanel4.add(z, BorderLayout.CENTER); // Add the component
-    jPanel4.revalidate(); // Revalidate to apply the changes
-    jPanel4.repaint(); // Repaint to refresh the display
-    DefaultTableModel model = (DefaultTableModel) FloodTable.jFloodTable.getModel();
-    for(int i = 0; i <  Ooadproject.incidentList.size(); i++){
-            System.out.println(Ooadproject.incidentList.get(i).getType());
-            if(Ooadproject.incidentList.get(i).getType().equals("Flood")){
-                    Flood e =(Flood) Ooadproject.incidentList.get(i);
-                 model.addRow(new Object[]{e.getIncidentAdress(),e.getLocation(),e.getTime(),e.getType(),e.getSeverity(),e.getEffectedArea()});
-            }
-        }
-    
-    
-    }//GEN-LAST:event_jPanel11MouseClicked
-
-    private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
-        // TODO add your handling code here:
-        
-            jPanel5.removeAll();
-    jPanel5.revalidate();
-    jPanel5.repaint();
-
-    // Create and add the FindFacility component
-        EarthquakeAdding f = new EarthquakeAdding();
-    f.setVisible(true);
-
-    jPanel5.setLayout(new BorderLayout()); // Set the layout
-    jPanel5.add(f, BorderLayout.CENTER); // Add the component
-    jPanel5.revalidate(); // Revalidate to apply the changes
-    jPanel5.repaint(); // Repaint to refresh the display
-    
-    jPanel4.removeAll();
-    jPanel4.revalidate();
-    jPanel4.repaint();
-
-    // Create and add the FindFacility component
-        EarthquakeTable z = new EarthquakeTable();
-    z.setVisible(true);
-
-    jPanel4.setLayout(new BorderLayout()); // Set the layout
-    jPanel4.add(z, BorderLayout.CENTER); // Add the component
-    jPanel4.revalidate(); // Revalidate to apply the changes
-    jPanel4.repaint(); // Repaint to refresh the display
-    DefaultTableModel model = (DefaultTableModel) EarthquakeTable.jTable1.getModel();
-    for(int i = 0; i <  Ooadproject.incidentList.size(); i++){
-            System.out.println(Ooadproject.incidentList.get(i).getType());
-            if(Ooadproject.incidentList.get(i).getType().equals("Earthquake")){
-                    Earthquake e =(Earthquake) Ooadproject.incidentList.get(i);
-                 model.addRow(new Object[]{e.getIncidentAdress(),e.getLocation(),e.getTime(),e.getType(),e.getSeverity()});
-            }
-        }
-    
-    
-    }//GEN-LAST:event_jPanel6MouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
