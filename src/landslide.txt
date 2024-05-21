@@ -1,0 +1,5 @@
+incidentAdress,location,time,type,severity,valleyDepth
+Trabzon,61,10/10/2010,LandSlide,large,5
+Hatay,30,12/07/2008,LandSlide,medium,5
+Edirne,22,03/03/2020,LandSlide,medium,5
+Kahramanmaraş,41,12/09/2009,LandSlide,3,3
