@@ -4,21 +4,24 @@
  */
 package classes;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 /**
  *
- * @author Toshiba
+ * @author gokay
  */
 public abstract class Incident {
+    private String type;
     private String incidentAdress;
     private long location;
-    private LocalTime time;
+    private LocalDate time;
 
-    public Incident(String incidentAdress, long location, LocalTime time){
+    public Incident(String incidentAdress, long location, LocalDate time,String type){
     this.incidentAdress = incidentAdress;
     this.location = location;
     this.time = time;
+    this.type = type;
     }
     
     public String getIncidentAdress() {
@@ -37,16 +40,14 @@ public abstract class Incident {
         this.location = location;
     }
 
-    public LocalTime getTime() {
+    public LocalDate getTime() {
         return time;
     }
 
-    public void setTime(LocalTime time) {
+    public void setTime(LocalDate time) {
         this.time = time;
     }
-            
-    
-    
-    
-    
+    public String getType(){
+        return type;
+    }
 }

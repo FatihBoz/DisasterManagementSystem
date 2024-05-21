@@ -4,20 +4,21 @@
  */
 package classes;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 /**
  *
- * @author Toshiba
+ * @author gokay
  */
 public class LandSlide extends Incident {
     private String type;
     private String severity;
     private int valleyDepth;
     
-    public LandSlide(String incidentAdress, long location, LocalTime time, String type, String severity,
+    public LandSlide(String incidentAdress, long location, LocalDate time, String type, String severity,
             int valleyDepth) {
-        super(incidentAdress, location, time);
+        super(incidentAdress, location, time,type);
         this.type = type;
         this.severity = severity;
         this.valleyDepth = valleyDepth;
@@ -38,6 +39,8 @@ public class LandSlide extends Incident {
     public void setSeverity(String severity) {
         this.severity = severity;
     }
-    
+    public int getValleyDepth(){
+        return valleyDepth;
+    }
     
 }

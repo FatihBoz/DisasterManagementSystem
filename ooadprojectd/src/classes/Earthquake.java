@@ -4,19 +4,19 @@
  */
 package classes;
 
-import java.time.LocalTime;
+import java.time.LocalDate;
 
 /**
  *
- * @author Toshiba
+ * @author gokay
  */
 public class Earthquake extends Incident {
     private int severity;
     private String type;
 
 
-    public Earthquake(String incidentAdress, long location, LocalTime time, String type, int severity) {
-    super(incidentAdress,location,time);
+    public Earthquake(String incidentAdress, long location, LocalDate time, String type, int severity) {
+    super(incidentAdress,location,time,type);
     this.severity = severity;
     this.type = type;
     }

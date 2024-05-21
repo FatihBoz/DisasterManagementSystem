@@ -4,20 +4,21 @@
  */
 package classes;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 /**
  *
- * @author Toshiba
+ * @author gokay
  */
 public class Flood extends Incident{
     private String type;
     private String severity; //low, middle, high
     private int effectedArea;
     
-    public Flood(String incidentAdress, long location, LocalTime time, String type, String severity,
+    public Flood(String incidentAdress, long location, LocalDate time, String type, String severity,
                    int effectedArea) {
-    super(incidentAdress,location,time);
+    super(incidentAdress,location,time,type);
     this.type = type;
     this.severity = severity;
     this.effectedArea = effectedArea;
