@@ -4,12 +4,20 @@
  */
 package swing;
 
+import classes.Earthquake;
 import classes.FacilityFactory;
+import classes.Flood;
+import classes.Incident;
+import classes.LandSlide;
 import classes.User;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Locale;
 import javax.swing.SwingUtilities;
 
 /**
@@ -18,7 +26,7 @@ import javax.swing.SwingUtilities;
  */
 public class Ooadproject {
      public static ArrayList<User> userList = new ArrayList<>();
-     
+     public static ArrayList<Incident> incidentList = new ArrayList<>();
     
     /**
      * @param args the command line arguments
@@ -52,6 +60,8 @@ public class Ooadproject {
             public void run() {
                 scanFiles();
                 FacilityFactory f = new FacilityFactory();
+                createIncidentList();
+                
                 new Login().setVisible(true);
                 
                 
@@ -84,9 +94,85 @@ public class Ooadproject {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
+        
+        
    }
     public ArrayList<User> getUserList(){
         return this.userList;
     }
+    public static void createIncidentList(){
+        String fileName = "src\\earthquake.txt";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            br.readLine();
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(",");
+                String incidentAdress = data[0];
+                long location = Long.valueOf(data[1]);
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy", Locale.ENGLISH);
+                LocalDate date = LocalDate.parse(data[2], formatter);
+               
+                LocalDate time = date; 
+                int severity = Integer.parseInt(data[4]);
+                Incident i = new Earthquake(incidentAdress, location, time, "Earthquake",severity);
+                incidentList.add(i);
+
+           }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        fileName = "src\\flood.txt";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            br.readLine();
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(",");
+                String incidentAdress = data[0];
+                long location = Long.valueOf(data[1]);
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy", Locale.ENGLISH);
+                LocalDate date = LocalDate.parse(data[2], formatter);
+               
+                LocalDate time = date; 
+                String severity = data[4];
+                int effectedArea = Integer.parseInt(data[5]);
+                
+                Flood f = new Flood(incidentAdress, location, time, "Flood", severity,effectedArea);
+                incidentList.add(f);
+
+           }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        fileName = "src\\landslide.txt";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            br.readLine();
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(",");
+                String incidentAdress = data[0];
+                long location = Long.valueOf(data[1]);
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy", Locale.ENGLISH);
+                LocalDate date = LocalDate.parse(data[2], formatter);
+               
+                LocalDate time = date; 
+                String severity = data[4];
+                int valleyDepth = Integer.parseInt(data[5]);
+                
+                LandSlide f = new LandSlide(incidentAdress, location, time, "LandSlide", severity,valleyDepth);
+                incidentList.add(f);
+
+           }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+    }
+    }
     
-}
+    
+
